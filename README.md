@@ -1,7 +1,7 @@
 MGTextView
 =====================
 
-`MGTextView` extends `UITextView` and fix the Apple bugs offering a couple of useful functionalities.
+`MGTextView` extends `UITextView` fixing the Apple bugs and offering a couple of useful functionalities.
 
 In details the 2 bugs it goes to fix are:
 
