@@ -8,6 +8,8 @@
 
 #import "MGTextView.h"
 
+#define DEFAULT_FONT [UIFont systemFontOfSize:14.0]
+
 
 @interface MGTextView () <UITextViewDelegate>
 
@@ -99,7 +101,7 @@
 - (BOOL)mg_adjustContentSize
 {
     if (!self.font) {
-        self.font = [UIFont systemFontOfSize:14.0];
+        self.font = DEFAULT_FONT;
         return NO;
     }
     
