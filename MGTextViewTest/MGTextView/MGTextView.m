@@ -63,18 +63,27 @@
 }
 
 
-#pragma mark - Methods overriding
+#pragma mark - Other method
 
-- (void)setDelegate:(id<UITextViewDelegate>)delegate
+- (void)dealloc
 {
-    if (realDelegate_ != delegate) {
-        realDelegate_ = delegate;
-    }
+    [super removeObserver:self forKeyPath:NSStringFromSelector(@selector(contentSize))];
 }
 
-- (id<UITextViewDelegate>)delegate
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    return realDelegate_;
+    if ([keyPath isEqualToString:NSStringFromSelector(@selector(contentSize))]) {
+        
+        CGSize newSize = [change[@"new"] size];
+        
+        if (![self mg_hasContentSizeEqualTo:newSize]) {
+            [self mg_adjustContentSize];
+            [self mg_scrollTextToVisible];
+        }
+        
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 
@@ -102,13 +111,15 @@
 
 - (void)mg_configure
 {
-    //Needed to cover the case in witch the delegate is already set (i.e. in awakeFromNib)
-    
-    if ([super delegate] && [super delegate] != self) {
-        self.delegate = [super delegate];
-    }
-    
-    [super setDelegate:self];
+    [self addObserver:self forKeyPath:NSStringFromSelector(@selector(contentSize)) options:NSKeyValueObservingOptionNew context:nil];
+}
+
+
+#pragma mark - Helper methods
+
+- (BOOL)mg_hasContentSizeEqualTo:(CGSize)size
+{
+    return self.contentSize.height == size.height && self.contentSize.width == size.width;
 }
 
 @end

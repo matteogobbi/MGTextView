@@ -11,7 +11,7 @@
 #import "MGTextView.h"
 
 
-@interface ViewController ()
+@interface ViewController () <UITextViewDelegate>
 
 @end
 
@@ -24,7 +24,13 @@
     self.view.backgroundColor = [UIColor darkGrayColor];
     
     MGTextView *textView = [[MGTextView alloc] initWithFrame:(CGRect){{20.f, 100.f}, {300.f, 60.f}}];
+    textView.delegate = self;
     [self.view addSubview:textView];
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    NSLog(@"Called");
 }
 
 - (void)didReceiveMemoryWarning {
