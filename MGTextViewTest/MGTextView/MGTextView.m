@@ -65,7 +65,7 @@
 
 - (void)dealloc
 {
-    [super removeObserver:self forKeyPath:NSStringFromSelector(@selector(contentSize))];
+    [self removeObserver:self forKeyPath:NSStringFromSelector(@selector(contentSize))];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
