@@ -8,6 +8,12 @@
 
 #import "MGTextView.h"
 
+
+@interface MGTextView () <UITextViewDelegate>
+
+@end
+
+
 @implementation MGTextView {
     id<UITextViewDelegate> realDelegate_;
 }
@@ -18,40 +24,41 @@
 - (id)awakeAfterUsingCoder:(NSCoder *)aDecoder
 {
     MGTextView *obj = [super awakeAfterUsingCoder:aDecoder];
-    
+    [self mg_configure];
     return obj;
 }
 
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    [self mg_configure];
 }
 
 - (instancetype)init
 {
     MGTextView *obj = [super init];
-    
+    [self mg_configure];
     return obj;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     MGTextView *obj = [super initWithCoder:aDecoder];
-    
+    [self mg_configure];
     return obj;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     MGTextView *obj = [super initWithFrame:frame];
-    
+    [self mg_configure];
     return obj;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame textContainer:(NSTextContainer *)textContainer
 {
     MGTextView *obj = [super initWithFrame:frame textContainer:textContainer];
-    
+    [self mg_configure];
     return obj;
 }
 
@@ -93,5 +100,15 @@
 
 #pragma mark - Other private methods
 
+- (void)mg_configure
+{
+    //Needed to cover the case in witch the delegate is already set (i.e. in awakeFromNib)
+    
+    if ([super delegate] && [super delegate] != self) {
+        self.delegate = [super delegate];
+    }
+    
+    [super setDelegate:self];
+}
 
 @end
