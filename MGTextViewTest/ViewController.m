@@ -26,12 +26,8 @@
     MGTextView *textView = [[MGTextView alloc] initWithFrame:(CGRect){{20.f, 100.f}, {150.f, 60.f}}];
     textView.delegate = self;
     textView.autoResizableHeight = YES;
+    [textView removeExtraSpaces];
     [self.view addSubview:textView];
-}
-
-- (void)textViewDidBeginEditing:(UITextView *)textView
-{
-    NSLog(@"Called");
 }
 
 - (void)didReceiveMemoryWarning {

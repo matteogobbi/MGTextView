@@ -12,4 +12,6 @@
 
 @property (nonatomic, assign) BOOL autoResizableHeight;
 
+- (void)removeExtraSpaces;
+
 @end
