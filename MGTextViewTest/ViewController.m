@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 
+#import "MGTextView.h"
+
+
 @interface ViewController ()
 
 @end
@@ -17,6 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.view.backgroundColor = [UIColor darkGrayColor];
+    
+    MGTextView *textView = [[MGTextView alloc] initWithFrame:(CGRect){{20.f, 100.f}, {300.f, 60.f}}];
+    [self.view addSubview:textView];
 }
 
 - (void)didReceiveMemoryWarning {
