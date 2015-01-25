@@ -152,6 +152,10 @@
 
 - (void)setFont:(UIFont *)font
 {
+    if ([self.font isEqual:font]) {
+        return;
+    }
+    
     [super setFont:font];
     
     [self mg_adjustContentSize];
