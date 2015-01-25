@@ -99,6 +99,7 @@
 - (BOOL)mg_adjustContentSize
 {
     if (!self.font) {
+        self.font = [UIFont systemFontOfSize:14.0];
         return NO;
     }
     
