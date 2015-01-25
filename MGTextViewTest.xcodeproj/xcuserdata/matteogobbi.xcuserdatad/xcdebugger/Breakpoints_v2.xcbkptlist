@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MGTextViewTest/MGTextView/MGTextView.m"
-            timestampString = "443839270.892354"
+            timestampString = "443840437.782281"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "-mg_adjustContentSize"
             landmarkType = "5">
          </BreakpointContent>

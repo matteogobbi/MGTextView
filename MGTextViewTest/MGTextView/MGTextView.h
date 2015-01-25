@@ -10,4 +10,6 @@
 
 @interface MGTextView : UITextView
 
+@property (nonatomic, assign) BOOL autoResizableHeight;
+
 @end

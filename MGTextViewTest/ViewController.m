@@ -23,8 +23,9 @@
     
     self.view.backgroundColor = [UIColor darkGrayColor];
     
-    MGTextView *textView = [[MGTextView alloc] initWithFrame:(CGRect){{20.f, 100.f}, {300.f, 60.f}}];
+    MGTextView *textView = [[MGTextView alloc] initWithFrame:(CGRect){{20.f, 100.f}, {150.f, 60.f}}];
     textView.delegate = self;
+    textView.autoResizableHeight = YES;
     [self.view addSubview:textView];
 }
 

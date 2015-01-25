@@ -71,12 +71,13 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([keyPath isEqualToString:NSStringFromSelector(@selector(contentSize))]) {
-        
-        CGSize newSize = [change[@"new"] CGSizeValue];
-        
-        if (![self mg_hasContentSizeEqualTo:newSize]) {
-            [self mg_adjustContentSize];
+
+        if ([self mg_adjustContentSize]) {
             [self mg_scrollTextToVisible];
+            
+            if (self.autoResizableHeight) {
+                [self mg_autoResizeHeight];
+            }
         }
         
     } else {
@@ -95,8 +96,12 @@
 }
 
 
-- (void)mg_adjustContentSize
+- (BOOL)mg_adjustContentSize
 {
+    if (!self.font) {
+        return NO;
+    }
+    
     CGSize newContentSize = [self.text boundingRectWithSize:CGSizeMake(self.frame.size.width, CGFLOAT_MAX)
                                                     options:NSStringDrawingUsesLineFragmentOrigin
                                                  attributes:@{NSFontAttributeName: self.font}
@@ -104,7 +109,13 @@
     
     newContentSize.height += (self.textContainerInset.top + self.textContainerInset.bottom);
     
+    if ([self mg_hasContentSizeEqualTo:newContentSize]) {
+        return NO;
+    }
+    
     [self setContentSize:newContentSize];
+    
+    return YES;
 }
 
 
@@ -112,7 +123,17 @@
 
 - (void)mg_configure
 {
+    self.autoResizableHeight = NO;
+    
     [self addObserver:self forKeyPath:NSStringFromSelector(@selector(contentSize)) options:NSKeyValueObservingOptionNew context:nil];
+}
+
+- (void)mg_autoResizeHeight
+{
+    CGRect rect = self.frame;
+    rect.size.height = self.contentSize.height;
+    
+    self.frame = rect;
 }
 
 
