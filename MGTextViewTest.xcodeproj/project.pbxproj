@@ -14,7 +14,7 @@
 		651DBB831A745FAD00E30C13 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 651DBB821A745FAD00E30C13 /* Images.xcassets */; };
 		651DBB861A745FAD00E30C13 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 651DBB841A745FAD00E30C13 /* LaunchScreen.xib */; };
 		651DBB921A745FAD00E30C13 /* MGTextViewTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 651DBB911A745FAD00E30C13 /* MGTextViewTestTests.m */; };
-		651DBB9E1A74602900E30C13 /* MGTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 651DBB9D1A74602900E30C13 /* MGTextView.m */; };
+		65B863241A7548DD003500A6 /* MGTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B863231A7548DD003500A6 /* MGTextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +41,8 @@
 		651DBB8B1A745FAD00E30C13 /* MGTextViewTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGTextViewTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		651DBB901A745FAD00E30C13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		651DBB911A745FAD00E30C13 /* MGTextViewTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGTextViewTestTests.m; sourceTree = "<group>"; };
-		651DBB9C1A74602900E30C13 /* MGTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTextView.h; sourceTree = "<group>"; };
-		651DBB9D1A74602900E30C13 /* MGTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTextView.m; sourceTree = "<group>"; };
+		65B863221A7548DD003500A6 /* MGTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTextView.h; sourceTree = "<group>"; };
+		65B863231A7548DD003500A6 /* MGTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTextView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +84,7 @@
 		651DBB741A745FAD00E30C13 /* MGTextViewTest */ = {
 			isa = PBXGroup;
 			children = (
-				651DBB9B1A74600600E30C13 /* MGTextView */,
+				65B863211A7548DD003500A6 /* MGTextView */,
 				651DBB791A745FAD00E30C13 /* AppDelegate.h */,
 				651DBB7A1A745FAD00E30C13 /* AppDelegate.m */,
 				651DBB7C1A745FAD00E30C13 /* ViewController.h */,
@@ -123,11 +123,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		651DBB9B1A74600600E30C13 /* MGTextView */ = {
+		65B863211A7548DD003500A6 /* MGTextView */ = {
 			isa = PBXGroup;
 			children = (
-				651DBB9C1A74602900E30C13 /* MGTextView.h */,
-				651DBB9D1A74602900E30C13 /* MGTextView.m */,
+				65B863221A7548DD003500A6 /* MGTextView.h */,
+				65B863231A7548DD003500A6 /* MGTextView.m */,
 			);
 			path = MGTextView;
 			sourceTree = "<group>";
@@ -235,7 +235,7 @@
 				651DBB7E1A745FAD00E30C13 /* ViewController.m in Sources */,
 				651DBB7B1A745FAD00E30C13 /* AppDelegate.m in Sources */,
 				651DBB781A745FAD00E30C13 /* main.m in Sources */,
-				651DBB9E1A74602900E30C13 /* MGTextView.m in Sources */,
+				65B863241A7548DD003500A6 /* MGTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +426,7 @@
 				651DBB971A745FAD00E30C13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		651DBB981A745FAD00E30C13 /* Build configuration list for PBXNativeTarget "MGTextViewTestTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +435,7 @@
 				651DBB9A1A745FAD00E30C13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
