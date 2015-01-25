@@ -14,9 +14,7 @@
 @end
 
 
-@implementation MGTextView {
-    id<UITextViewDelegate> realDelegate_;
-}
+@implementation MGTextView
 
 
 #pragma mark - Inits overriding
@@ -74,7 +72,7 @@
 {
     if ([keyPath isEqualToString:NSStringFromSelector(@selector(contentSize))]) {
         
-        CGSize newSize = [change[@"new"] size];
+        CGSize newSize = [change[@"new"] CGSizeValue];
         
         if (![self mg_hasContentSizeEqualTo:newSize]) {
             [self mg_adjustContentSize];
@@ -103,6 +101,9 @@
                                                     options:NSStringDrawingUsesLineFragmentOrigin
                                                  attributes:@{NSFontAttributeName: self.font}
                                                     context:nil].size;
+    
+    newContentSize.height += (self.textContainerInset.top + self.textContainerInset.bottom);
+    
     [self setContentSize:newContentSize];
 }
 
@@ -121,5 +122,15 @@
 {
     return self.contentSize.height == size.height && self.contentSize.width == size.width;
 }
+
+
+#pragma mark - Public methods
+
+- (void)removeExtraSpaces
+{
+    self.textContainer.lineFragmentPadding = 0;
+    self.textContainerInset = UIEdgeInsetsZero;
+}
+
 
 @end
