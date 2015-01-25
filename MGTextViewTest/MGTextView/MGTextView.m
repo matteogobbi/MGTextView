@@ -145,6 +145,16 @@
 }
 
 
+#pragma mark - Overriding methods
+
+- (void)setFont:(UIFont *)font
+{
+    [super setFont:font];
+    
+    [self mg_adjustContentSize];
+}
+
+
 #pragma mark - Public methods
 
 - (void)removeExtraSpaces
